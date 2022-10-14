@@ -8,15 +8,7 @@ Running the notebooks in this repository require a version of [`pyam`](https://p
 
 ## Data
 
-TODO: migrate derivative data generation here
-
-To run the SI notebooks, place the following files from the [AR6 Scenario Explorer](https://data.ene.iiasa.ac.at/ar6/#/downloads) into a top-level `data` directory:
-
-- `AR6_Scenarios_Database_World_v1.0.csv`
-- `AR6_Scenarios_Database_R5_regions_v1.0.csv`
-- `AR6_Scenarios_Database_R10_regions_v1.0.csv`
-- `AR6_Scenarios_Database_metadata_indicators_v1.0.xlsx`
-
+See the [Readme in the data folder](data/README.md) for how to acquire the data for running these notebooks. 
 
 # Figures
 
