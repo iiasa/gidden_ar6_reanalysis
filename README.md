@@ -1,6 +1,6 @@
 # gidden_ar6_reanalysis
 
-This is the repository for all analysis used in Gidden et al. (2022).
+This is the repository for all analysis used in Gidden & Gasser et al. (2022).
 
 # Requirements
 
@@ -23,3 +23,5 @@ The SI files depend on each other and should be run in order
 
 - `si/00_setup.ipynb` - generates labels for scenarios based on variable availability and other metrics
 - `si/01_scenario_representation.ipynb` - computes statistical tests for representativeness of scenarios and creates diagnostic plots
+- `si/02_adjustment_characteristics.ipynb` - computes median NGHGI adjustment value
+- `si/03_mitigation_outcomes_table.ipynb` - computes key mitigation benchmarks and statistics
