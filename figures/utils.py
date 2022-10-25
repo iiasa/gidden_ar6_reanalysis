@@ -70,7 +70,7 @@ def sequestration_plot(pdata, order=None, medians=True, stacked=True, cmap='PiYG
     ax.legend(h[start:], l[start:], **legend)
     return ax
 
-def share_of_cdr_data(df, categories_to_temp, offset=None):
+def share_of_cdr_data(df, categories_to_temp, offset=None, quantiles=(0.25, 0.5, 0.75)):
     variables = [
         'AR6 Reanalysis|OSCARv3.2|Carbon Removal', 
         'AR6 Reanalysis|OSCARv3.2|Carbon Removal|Land',
@@ -90,7 +90,7 @@ def share_of_cdr_data(df, categories_to_temp, offset=None):
                 variables[1], variables[0],
                 name='Land Share of Total CDR', ignore_units='fraction',
             )
-            .quantiles((0.25, 0.5, 0.75))
+            .quantiles(quantiles)
             .rename({'model': {'unweighted': temp}})
             .timeseries()
         )
