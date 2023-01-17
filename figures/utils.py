@@ -16,10 +16,10 @@ def make_quantiles(df, v, cat):
         df
         .filter(region='World', variable=v)
         .filter(Category=cat)
-        .quantiles((0.1, 0.25, 0.5, 0.75, 0.9))
+        .compute.quantiles((0.1, 0.25, 0.5, 0.75, 0.9))
     )
     data.set_meta(cat, name='Category')
-    data = data.rename({'model': {'unweighted': cat}})
+    data = data.rename({'model': {'Quantiles': cat}})
     return data
 
 def make_sequestration_plot_data(df, variables, categories_to_temp, years=[2030, 2050]):
@@ -29,8 +29,8 @@ def make_sequestration_plot_data(df, variables, categories_to_temp, years=[2030,
             df
             .filter(region='World', variable=variable)
             .filter(Category=category)
-            .quantiles((0.25, 0.5, 0.75))
-            .rename(model={'unweighted': temp})
+            .compute.quantiles((0.25, 0.5, 0.75))
+            .rename(model={'Quantiles': temp})
         ) for (category, temp), variable in itertools.product(categories_to_temp.items(), variables)
     ])
 
@@ -53,7 +53,7 @@ def sequestration_plot(pdata, order=None, medians=True, stacked=True, cmap='PiYG
     if ax is None:
         fig, ax = plt.subplots(figsize=(7, 5))
     
-    base, mins, maxs = pdata['quantile_0.5'], pdata['quantile_0.25'], pdata['quantile_0.75']
+    base, mins, maxs = pdata['0.5'], pdata['0.25'], pdata['0.75']
     if order:
         base = base[order]
     errors = [[base[c] - mins[c], maxs[c] - base[c]] for c in base.columns]
@@ -90,8 +90,8 @@ def share_of_cdr_data(df, categories_to_temp, offset=None, quantiles=(0.25, 0.5,
                 variables[1], variables[0],
                 name='Land Share of Total CDR', ignore_units='fraction',
             )
-            .quantiles(quantiles)
-            .rename({'model': {'unweighted': temp}})
+            .compute.quantiles(quantiles)
+            .rename({'model': {'Quantiles': temp}})
             .timeseries()
         )
         dfs.append(data)
