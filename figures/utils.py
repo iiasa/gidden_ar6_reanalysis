@@ -113,18 +113,17 @@ def make_gap_data(df, v, categories_to_temp):
     x = x.set_index(idx)['value'] 
     return x
 
-def make_gap_plot(data, drop={}, ax=None):
+def make_gap_plot(data, drop={}, ax=None, palette=None):
     data = data.reset_index().dropna()
     for col, value in drop.items():
         data = data[data[col] != value]
     if ax is None:
         fig, ax = plt.subplots(figsize=(7, 5))
     ax.axhline(0, c='k', ls='--', alpha=0.5)
-    palette = {"2C": "#fc8d59", "1.5C":"#91bfdb"}
+    palette = palette or {"2C": "#fc8d59", "1.5C":"#91bfdb"}
     sns.boxplot(
         x="region", y="value", hue="Category",
         data=data, 
-        palette="Set2_r", ax=ax, showfliers=False, whis=0,
-#        palette=palette, ax=ax, showfliers=False, whis=0,
+        palette=palette, ax=ax, showfliers=False, whis=0,
     )
     return ax
