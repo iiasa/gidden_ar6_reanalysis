@@ -49,7 +49,7 @@ def make_sequestration_plot_data(df, variables, categories_to_temp, years=[2030,
     pdata = pdata.reindex(index=pdata.index[::-1]) # reverse ordering so plots are in correct order
     return data, pdata
 
-def sequestration_plot(pdata, order=None, medians=True, stacked=True, cmap='PiYG', ax=None, legend=None):
+def sequestration_plot(pdata, order=None, medians=True, stacked=True, color=None, ax=None, legend=None):
     if ax is None:
         fig, ax = plt.subplots(figsize=(7, 5))
     
@@ -58,7 +58,7 @@ def sequestration_plot(pdata, order=None, medians=True, stacked=True, cmap='PiYG
         base = base[order]
     errors = [[base[c] - mins[c], maxs[c] - base[c]] for c in base.columns]
     
-    base.plot.barh(xerr=errors, capsize=4, rot=0, stacked=stacked, ax=ax, cmap=cmap, alpha=0.7)
+    base.plot.barh(xerr=errors, capsize=4, rot=0, stacked=stacked, ax=ax, color=color, alpha=0.7)
     if medians:
         ax.scatter(base.sum(axis=1), base.index, marker='s', color='k', label='Median Total')
     
