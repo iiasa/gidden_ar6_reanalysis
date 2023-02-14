@@ -13,6 +13,7 @@ From [https://data.ene.iiasa.ac.at/ar6/#/downloads](https://data.ene.iiasa.ac.at
 - `AR6_Scenarios_Database_R5_regions_v1.0.csv` for SI notebooks
 - `AR6_Scenarios_Database_R10_regions_v1.0.csv` for SI notebooks
 
-Additionally, the notebook `make_additional_data.ipynb` should be run, which will generate:
+Additionally, the notebooks should be run which generate the following datasets:
 
-- `additional_analysis_data.csv`
+- `make_additional_data.ipynb`: `additional_analysis_data.csv`
+- `make_additional_metadata.ipynb`: `additional_analysis_metadata.csv`

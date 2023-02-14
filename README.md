@@ -1,6 +1,6 @@
 # gidden_ar6_reanalysis
 
-This is the repository for all analysis used in Gidden & Gasser et al. (2022).
+This is the repository for all analysis used in Gidden & Gasser et al. (2023).
 
 # Requirements
 
@@ -12,10 +12,7 @@ See the [Readme in the data folder](data/README.md) for how to acquire the data 
 
 # Figures
 
-All figures in the main text can be regenerated using the notebooks
-
-- `figures/figure_1.ipynb`
-- `figures/figure_2.ipynb`
+All figures in the main text can be regenerated using the notebooks in `figures`
 
 # SI
 
